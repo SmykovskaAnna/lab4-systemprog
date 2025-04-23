@@ -1,4 +1,4 @@
-ï»¿#include <windows.h>
+#include <windows.h>
 #include <iostream>
 #include <fcntl.h>
 #include <io.h>
@@ -19,7 +19,7 @@ void PrintStartupPrograms(HKEY rootKey, const std::wstring& subKey) {
             if (result == ERROR_NO_MORE_ITEMS) break;
 
             if (valueType == REG_SZ) {
-                std::wcout << L"Ð†Ð¼'Ñ: " << valueName << L" \nÐ¨Ð»ÑÑ…: " << valueData << std::endl;
+                std::wcout << L"²ì'ÿ: " << valueName << L" \nØëÿõ: " << valueData << std::endl;
             }
         }
         RegCloseKey(hKey);
@@ -31,10 +31,10 @@ int main() {
         return 1;
     }
 
-    std::wcout << L"Ð¡Ð¿Ð¸ÑÐ¾Ðº ÑƒÑÑ–Ñ… Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼ Ñ‚Ð° ÑÐ»ÑƒÐ¶Ð± ÑÐºÑ– Ð·Ð°Ð²Ð°Ð½Ñ‚Ð°Ð¶ÑƒÑŽÑ‚ÑŒÑÑ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ð¾ Ð´Ð»Ñ ÑƒÑÑ–Ñ… ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ñ–Ð² (HKLM):\n";
+    std::wcout << L"Ñïèñîê óñ³õ ïðîãðàì òà ñëóæá ÿê³ çàâàíòàæóþòüñÿ àâòîìàòè÷íî äëÿ óñ³õ êîðèñòóâà÷³â (HKLM):\n";
     PrintStartupPrograms(HKEY_LOCAL_MACHINE, L"Software\\Microsoft\\Windows\\CurrentVersion\\Run");
 
-    std::wcout << L"\nÐ¡Ð¿Ð¸ÑÐ¾Ðº ÑƒÑÑ–Ñ… Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼ Ñ‚Ð° ÑÐ»ÑƒÐ¶Ð± ÑÐºÑ– Ð·Ð°Ð²Ð°Ð½Ñ‚Ð°Ð¶ÑƒÑŽÑ‚ÑŒÑÑ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ð¾ Ð´Ð»Ñ Ð¿Ð¾Ñ‚Ð¾Ñ‡Ð½Ð¾Ð³Ð¾ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð° (HKCU):\n";
+    std::wcout << L"\nÑïèñîê óñ³õ ïðîãðàì òà ñëóæá ÿê³ çàâàíòàæóþòüñÿ àâòîìàòè÷íî äëÿ ïîòî÷íîãî êîðèñòóâà÷à (HKCU):\n";
     PrintStartupPrograms(HKEY_CURRENT_USER, L"Software\\Microsoft\\Windows\\CurrentVersion\\Run");
 
     return 0;
